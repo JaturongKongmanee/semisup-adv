@@ -3,6 +3,10 @@ Main robust self-training script. Based loosely on code from
 https://github.com/yaodongyu/TRADES
 """
 
+"""
+Test forking
+"""
+
 
 import os
 import sys
