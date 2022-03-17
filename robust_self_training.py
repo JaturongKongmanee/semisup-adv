@@ -34,6 +34,8 @@ from cutout import Cutout
 
 import logging
 
+import time
+
 
 # ----------------------------- CONFIGURATION ----------------------------------
 parser = argparse.ArgumentParser(
@@ -481,4 +483,6 @@ def main():
 # ------------------------------------------------------------------------------
 
 if __name__ == '__main__':
+    since = time.time()
     main()
+    print(f'Training time: {time.time() - since}')

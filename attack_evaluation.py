@@ -20,6 +20,7 @@ from attack_pgd import pgd
 from attack_cw import cw
 import torch.backends.cudnn as cudnn
 from utils import get_model
+import time
 
 
 def eval_adv_test(model, device, test_loader, attack, attack_params,
@@ -239,7 +240,11 @@ if __name__ == '__main__':
             'tau_decrease_factor': args.tau_decrease_factor
         })
 
+    since = time.time()
+
     logging.info('Running %s' % attack_params)
     eval_adv_test(model, device, test_loader, attack=args.attack,
                   attack_params=attack_params, results_dir=results_dir,
                   num_eval_batches=args.num_eval_batches)
+                  
+    print(f'Training time: {time.time() - since}')
